@@ -17,33 +17,35 @@ document.querySelectorAll('.reveal').forEach((el) => io ? io.observe(el) : el.cl
 // Footer year
 document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 
-// Contact form — opens the visitor's email app with the message pre-filled.
-// To receive submissions directly instead, point the form's action at a form service
-// (e.g. Formspree, Netlify Forms) and remove this handler.
+// Form submissions go to Formspree, which emails them to you and keeps a copy in your Formspree dashboard.
+const FORM_ENDPOINT = 'https://formspree.io/f/xaeqqjop';
+
+// Contact form
 const form = document.querySelector('#contact-form');
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const d = new FormData(form);
-    const subject = `Website inquiry${d.get('service') ? ' — ' + d.get('service') : ''} from ${d.get('name')}`;
-    const body = [
-      `Name: ${d.get('name')}`,
-      `Email: ${d.get('email')}`,
-      `Phone: ${d.get('phone') || '—'}`,
-      d.get('service') ? `Service: ${d.get('service')}` : null,
-      '',
-      d.get('message'),
-    ].filter((l) => l !== null).join('\n');
-    window.location.href = `mailto:info@roziglobal.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     const status = document.querySelector('.form-status');
-    if (status) status.classList.add('show');
+    const button = form.querySelector('button[type="submit"]');
+    const d = new FormData(form);
+    d.append('_subject', `Website inquiry${d.get('service') ? ' — ' + d.get('service') : ''} from ${d.get('name')}`);
+    d.append('Form', 'Contact page');
+    button.disabled = true;
+    try {
+      const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: d, headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error();
+      form.reset();
+      status.textContent = "Thanks! Your message was sent. We'll get back to you within one business day.";
+    } catch {
+      status.textContent = "We couldn't send your message. Please try again, or call us at (805) 919-6009.";
+    }
+    status.classList.add('show');
+    button.disabled = false;
   });
 }
 
 // New client intake form
-// To receive submissions automatically, create a free form at formspree.io and paste its URL here,
-// e.g. 'https://formspree.io/f/abcdwxyz'. While empty, the form opens the visitor's email app instead.
-const INTAKE_ENDPOINT = '';
+const INTAKE_ENDPOINT = FORM_ENDPOINT;
 const intake = document.querySelector('#intake-form');
 if (intake) {
   const biz = document.querySelector('#business-section');
@@ -81,14 +83,19 @@ if (intake) {
       if (val) lines.push(`${key}: ${val}`);
     }
     const name = data.get('First name');
+    data.append('_subject', `New client intake: ${name} ${data.get('Last name')}`);
+    data.append('_replyto', data.get('Email'));
+    data.append('Form', 'New client intake');
 
     if (INTAKE_ENDPOINT) {
       try {
+        intake.querySelector('button[type="submit"]').disabled = true;
         const res = await fetch(INTAKE_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
         if (!res.ok) throw new Error();
       } catch {
         document.querySelector('#form-error').textContent = "We couldn't send your form. Please try again, or call us at (805) 919-6009.";
         document.querySelector('#form-error').hidden = false;
+        intake.querySelector('button[type="submit"]').disabled = false;
         return;
       }
     } else {
