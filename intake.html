@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Client Intake — Rozi Accounting Services</title>
+  <meta name="description" content="Start working with Rozi Accounting Services. Tell us about you or your business and the services you need.">
+  <meta property="og:title" content="New Client Intake — Rozi Accounting Services">
+  <meta property="og:description" content="Start working with Rozi Accounting Services. Tell us about you or your business and the services you need.">
+  <meta property="og:image" content="https://www.roziglobal.com/og.png">
+  <link rel="icon" href="logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="container nav" aria-label="Main">
+    <a href="index.html" class="logo" aria-label="Rozi Accounting Services home">
+      <img class="logo-mark" src="logo.svg" alt="" width="61" height="40">
+      <span class="logo-text">Rozi<small>Accounting Services</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="intake.html" aria-current="page">New Clients</a></li>
+      <li><a href="portal.html" class="nav-portal"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Client Portal</a></li>
+      <li><a href="pay.html" class="nav-portal"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Pay Online</a></li>
+      <li><a href="https://cal.com/roziglobal/30min" class="btn btn-primary">Book a Call</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="crumbs"><a href="index.html">Home</a> / New Client Intake</div>
+      <span class="eyebrow">New clients</span>
+      <h1>Let's get you set up.</h1>
+      <p class="lead">Tell us a little about you and what you need. It takes about five minutes, and we'll follow up within one business day to schedule your free consultation.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container intake-layout">
+      <form id="intake-form" class="intake" novalidate>
+
+        <fieldset>
+          <legend><span class="step-no">1</span>Your contact details</legend>
+          <div class="field-row">
+            <div class="field"><label for="first">First name</label><input id="first" name="First name" required autocomplete="given-name"></div>
+            <div class="field"><label for="last">Last name</label><input id="last" name="Last name" required autocomplete="family-name"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="i-email">Email</label><input id="i-email" name="Email" type="email" required autocomplete="email"></div>
+            <div class="field"><label for="i-phone">Phone</label><input id="i-phone" name="Phone" type="tel" required autocomplete="tel"></div>
+          </div>
+          <div class="field">
+            <span class="label">Best way to reach you</span>
+            <div class="checks"><label class="check"><input type="radio" name="Preferred contact" value="Phone call" required><span>Phone call</span></label><label class="check"><input type="radio" name="Preferred contact" value="Text message"><span>Text message</span></label><label class="check"><input type="radio" name="Preferred contact" value="Email"><span>Email</span></label></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="step-no">2</span>Who are we helping?</legend>
+          <div class="checks big"><label class="check"><input type="radio" name="Client type" value="Myself / my household" required><span>Myself / my household</span></label><label class="check"><input type="radio" name="Client type" value="My business"><span>My business</span></label><label class="check"><input type="radio" name="Client type" value="Both"><span>Both</span></label></div>
+        </fieldset>
+
+        <fieldset id="business-section" hidden>
+          <legend><span class="step-no">3</span>About your business</legend>
+          <div class="field-row">
+            <div class="field"><label for="bizname">Business name</label><input id="bizname" name="Business name" autocomplete="organization"></div>
+            <div class="field"><label for="entity">Business structure</label>
+              <select id="entity" name="Business structure"><option value="">Select…</option><option>Sole proprietorship</option><option>Single-member LLC</option><option>Multi-member LLC</option><option>Partnership</option><option>S corporation</option><option>C corporation</option><option>Nonprofit</option><option>Not sure</option></select></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="industry">Industry</label><input id="industry" name="Industry" placeholder="e.g. Construction, restaurant, consulting"></div>
+            <div class="field"><label for="employees">Number of employees</label>
+              <select id="employees" name="Employees"><option value="">Select…</option><option>Just me</option><option>2–5</option><option>6–20</option><option>21–50</option><option>More than 50</option></select></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="software">Current bookkeeping</label>
+              <select id="software" name="Current bookkeeping"><option value="">Select…</option><option>QuickBooks Online</option><option>QuickBooks Desktop</option><option>Xero</option><option>FreshBooks</option><option>Spreadsheets</option><option>Paper records</option><option>Nothing yet</option><option>Other</option></select></div>
+            <div class="field"><label for="revenue">Approximate annual revenue</label>
+              <select id="revenue" name="Annual revenue"><option value="">Prefer not to say</option><option>Under $100k</option><option>$100k–$500k</option><option>$500k–$1M</option><option>$1M–$5M</option><option>Over $5M</option></select></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="step-no" data-renumber>3</span>What do you need help with?</legend>
+          <p class="hint">Choose all that apply.</p>
+          <div class="checks grid-checks" id="services-group"><label class="check"><input type="checkbox" name="Services" value="Bookkeeping"><span>Bookkeeping</span></label><label class="check"><input type="checkbox" name="Services" value="Financial Reporting"><span>Financial Reporting</span></label><label class="check"><input type="checkbox" name="Services" value="Business Consulting"><span>Business Consulting</span></label><label class="check"><input type="checkbox" name="Services" value="Audit Support"><span>Audit Support</span></label><label class="check"><input type="checkbox" name="Services" value="Taxes"><span>Taxes</span></label><label class="check"><input type="checkbox" name="Services" value="Tax Return Drop-Off"><span>Tax Return Drop-Off</span></label></div>
+          <p class="error" id="services-error" hidden>Choose at least one service so we know where to start.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="step-no" data-renumber>4</span>Tax situation</legend>
+          <div class="field-row">
+            <div class="field"><label for="taxyear">Which tax year(s)?</label><input id="taxyear" name="Tax years" placeholder="e.g. 2025, or 2022–2025"></div>
+            <div class="field"><label for="deadline">Any deadline we should know about?</label><input id="deadline" name="Deadline" placeholder="e.g. Extension due Oct 15"></div>
+          </div>
+          <div class="field">
+            <span class="label">Do you have unfiled past-due returns?</span>
+            <div class="checks"><label class="check"><input type="radio" name="Past-due returns" value="Yes"><span>Yes</span></label><label class="check"><input type="radio" name="Past-due returns" value="No"><span>No</span></label><label class="check"><input type="radio" name="Past-due returns" value="Not sure"><span>Not sure</span></label></div>
+          </div>
+          <div class="field">
+            <span class="label">Have you received a letter or notice from the IRS or state?</span>
+            <div class="checks"><label class="check"><input type="radio" name="IRS or state notice" value="Yes"><span>Yes</span></label><label class="check"><input type="radio" name="IRS or state notice" value="No"><span>No</span></label></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="step-no" data-renumber>5</span>Anything else?</legend>
+          <div class="field"><label for="notes">Tell us about your situation</label><textarea id="notes" name="Notes" placeholder="What's going on, what's been frustrating, or what you'd like to change."></textarea></div>
+          <div class="field-row">
+            <div class="field"><label for="heard">How did you hear about us?</label>
+              <select id="heard" name="Referral source"><option value="">Select…</option><option>Google search</option><option>Referral from a friend or client</option><option>Social media</option><option>Walked by the office</option><option>Other</option></select></div>
+            <div class="field"><label for="start">When would you like to start?</label>
+              <select id="start" name="Start timing"><option value="">Select…</option><option>As soon as possible</option><option>Within the next month</option><option>Just exploring options</option></select></div>
+          </div>
+        </fieldset>
+
+        <div class="notice">
+          <strong>Please don't enter Social Security numbers, bank account numbers or passwords here.</strong>
+          After your consultation, you'll upload sensitive documents through our <a href="portal.html">secure client portal</a>.
+        </div>
+
+        <label class="check consent"><input type="checkbox" id="consent" required><span>I agree to be contacted by Rozi Accounting Services about my inquiry.</span></label>
+        <p class="error" id="form-error" hidden>Please fill in the highlighted fields.</p>
+
+        <button type="submit" class="btn btn-primary">Submit my information</button>
+      </form>
+
+      <div class="intake-done card" id="intake-done" hidden>
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h2>Thank you, <span id="done-name"></span>.</h2>
+        <p id="done-msg">We've received your information and will reach out within one business day.</p>
+        <p>Want to skip the wait? Pick a time for your free consultation now.</p>
+        <div class="btn-row"><a href="https://cal.com/roziglobal/30min" class="btn btn-primary">Book a 30-minute call</a></div>
+      </div>
+
+      <aside class="intake-aside">
+        <div class="card">
+          <h3>What happens next</h3>
+          <ol class="next-steps">
+            <li><strong>We review your answers</strong> so we come prepared.</li>
+            <li><strong>We call or email you</strong> within one business day.</li>
+            <li><strong>Free consultation</strong> to agree on a plan and fees.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>Rather talk now?</h3>
+          <p>Call <strong class="selectable">(805) 919-6009</strong> or email <strong class="selectable">info@roziglobal.com</strong>.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><img class="logo-mark" src="logo.svg" alt="" width="61" height="40"><span class="logo-text">Rozi<small>Accounting Services</small></span></a>
+        <p>Professional accounting and bookkeeping for small and medium businesses.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li><li><a href="intake.html">New client intake</a></li><li><a href="portal.html">Secure client portal</a></li><li><a href="pay.html">Make a payment</a></li></ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="services.html#bookkeeping">Bookkeeping</a></li><li><a href="services.html#reporting">Financial Reporting</a></li><li><a href="services.html#taxes">Taxes</a></li><li><a href="services.html#dropoff">Tax Drop-Off</a></li></ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul><li><a href="tel:+18059196009">(805) 919-6009</a></li><li><a href="mailto:info@roziglobal.com">info@roziglobal.com</a></li><li><a href="https://cal.com/roziglobal/30min">Book a 30-min call</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Rozi Accounting Services. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
