@@ -324,3 +324,6 @@ details p { margin: 12px 0 0; color: var(--ink-soft); }
 .section-head.center .eyebrow::before { display: none; }
 .card.featured { background: var(--brand); border-color: var(--brand); }
 .cta-band { background: linear-gradient(135deg, #214187 0%, #172b55 100%); }
+.owner { grid-template-columns: 160px minmax(0, 1fr); }
+.owner-photo { width: 160px; height: 160px; overflow: hidden; box-shadow: 0 0 0 4px var(--surface), 0 0 0 5px var(--line); }
+@media (max-width: 700px) { .owner-photo { width: 128px; height: 128px; } }
